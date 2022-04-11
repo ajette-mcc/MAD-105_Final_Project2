@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MAD-105_Final_Project2</string>
+    <string name="cust_name_text">Customer Name</string>
+    <string name="cust_name_hint">Your Name</string>
+    <string name="phone_text">Customer Phone</string>
+    <string name="cust_phone_hint">Your Phone #</string>
+    <string name="toScreen2">Next</string>
+</resources>
