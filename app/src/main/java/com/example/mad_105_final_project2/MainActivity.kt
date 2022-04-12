@@ -15,11 +15,12 @@ class MainActivity : AppCompatActivity() {
         val customerPhone = findViewById<TextView>(R.id.idCustPhone)
         val screen2Btn = findViewById<Button>(R.id.idButtonToScr2)
 
-        public var customerNameVar: String = "Joe"
-
         screen2Btn.setOnClickListener {
-            var intent = Intent(this,MainActivity3::class.java)
-            startActivity(intent)
+            val nextScreen = Intent (this@MainActivity, MainActivity3::class.java)
+            nextScreen.putExtra("CustName", customerName.text.toString())
+            nextScreen.putExtra( "CustPhone", customerPhone.text.toString())
+
+            startActivity(nextScreen)
         }
     }
 }
