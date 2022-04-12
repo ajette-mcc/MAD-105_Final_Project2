@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         val screen2Btn = findViewById<Button>(R.id.idButtonToScr2)
 
         screen2Btn.setOnClickListener {
-            val nextScreen = Intent (this@MainActivity, MainActivity3::class.java)
+            val nextScreen = Intent (this@MainActivity, MainActivity2::class.java)
             nextScreen.putExtra("CustName", customerName.text.toString())
             nextScreen.putExtra( "CustPhone", customerPhone.text.toString())
 

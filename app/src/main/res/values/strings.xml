@@ -5,4 +5,5 @@
     <string name="phone_text">Customer Phone</string>
     <string name="cust_phone_hint">Your Phone #</string>
     <string name="toScreen2">Next</string>
+    <string name="toScreen3">Next</string>
 </resources>
