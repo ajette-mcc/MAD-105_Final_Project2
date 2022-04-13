@@ -5,5 +5,15 @@
     <string name="phone_text">Customer Phone</string>
     <string name="cust_phone_hint">Your Phone #</string>
     <string name="toScreen2">Next</string>
+
+    <string name="teaBlack">Black Tea</string>
+    <string name="teaGreen">Green Tea</string>
+    <string name="teaHerbal">Herbal Tea</string>
+    <string name="teaSugar">Sugar</string>
+    <string name="teaSugarOff">No Sugar</string>
+    <string name="teaCream">Cream</string>
+    <string name="teaCreamOff">No Cream</string>
+    <string name="sizeString">Size: </string>
+    <string name="teaSize">Medium</string>
     <string name="toScreen3">Next</string>
 </resources>
