@@ -6,6 +6,9 @@
     <string name="cust_phone_hint">Your Phone #</string>
     <string name="toScreen2">Next</string>
 
+    <string name="scr2Name">Name:</string>
+    <string name="scr2Phone">Phone:</string>
+
     <string name="teaBlack">Black Tea</string>
     <string name="teaGreen">Green Tea</string>
     <string name="teaHerbal">Herbal Tea</string>
