@@ -19,4 +19,7 @@
     <string name="sizeString">Size: </string>
     <string name="teaSize">Medium</string>
     <string name="toScreen3">Next</string>
+
+    <string name="teaSelection">Tea Type:</string>
+    <string name="teaSizeSelection">Tea Size:</string>
 </resources>

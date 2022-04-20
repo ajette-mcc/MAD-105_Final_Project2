@@ -11,8 +11,9 @@
         android:layout_width="80dp"
         android:layout_height="30dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="24dp"
         android:text="@string/scr2Name"
+        android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/idPrintName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,6 +25,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
         android:text="@string/scr2Phone"
+        android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/idPrintPhone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -34,7 +36,7 @@
         android:layout_height="34dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,7 +46,54 @@
         android:layout_height="34dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/idPrintName" />
+
+    <TextView
+        android:id="@+id/idCustSelTeaType"
+        android:layout_width="218dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="24dp"
+        android:minHeight="48dp"
+        android:singleLine="false"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idPrintPhone"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/teaSelection"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/idCustSelTeaType"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/teaSizeSelection"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/idTeaSize"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <TextView
+        android:id="@+id/idTeaSize"
+        android:layout_width="214dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idCustSelTeaType" />
 </androidx.constraintlayout.widget.ConstraintLayout>

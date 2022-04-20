@@ -44,8 +44,14 @@ class MainActivity2 : AppCompatActivity() {
         val rbTeaHerbal = findViewById<RadioButton>(R.id.idBtnHerbalTea)
         val custSelectTeaSize: SeekBar = findViewById(R.id.idSeekBarSize)
         val custSelectTeaSizeText: TextView = findViewById(R.id.idSeekBarText)
+        val custSelectSugar:  ToggleButton = findViewById(R.id.idToggleSugar)
+//        val custSelectCreamer: ToggleButton = findViewById(R.id.idToggleCreamer)
+
+//        val custSelectCream = findViewById<ToggleButton>(R.id.idToggleCreamer)
+//        val custSelectSugar = findViewById<ToggleButton(R.id.idToggleSugar)
         val screen3Btn = findViewById<Button>(R.id.idButtonToScr3)
 
+        // Collect information passed in from MainActivity.kt and declare local variables for such input
         val extras = intent.extras
         if (extras != null) {
             customerName = extras.getString("CustName")
@@ -59,20 +65,21 @@ class MainActivity2 : AppCompatActivity() {
         var teaType = "None"
         var teaSelected = false
 
+        // Detect when customer selects a type of Tea (Black, Green, Herbal)
         rbTeaBlack.setOnClickListener {
-            Toast.makeText(applicationContext, "Black Tea", android.widget.Toast.LENGTH_LONG).show()
+//            Toast.makeText(applicationContext, "Black Tea", android.widget.Toast.LENGTH_LONG).show()
             teaType = "Black"
             teaSelected = true
         }
 
         rbTeaGreen.setOnClickListener {
-            Toast.makeText(applicationContext, "Green Tea", android.widget.Toast.LENGTH_LONG).show()
+//            Toast.makeText(applicationContext, "Green Tea", android.widget.Toast.LENGTH_LONG).show()
             teaType = "Green"
             teaSelected = true
         }
 
         rbTeaHerbal.setOnClickListener {
-            Toast.makeText(applicationContext, "Herbal Tea", android.widget.Toast.LENGTH_LONG).show()
+//            Toast.makeText(applicationContext, "Herbal Tea", android.widget.Toast.LENGTH_LONG).show()
             teaType = "Herbal"
             teaSelected = true
         }
@@ -108,6 +115,8 @@ class MainActivity2 : AppCompatActivity() {
                 val nextScreen = Intent(this@MainActivity2, MainActivity3::class.java)
                 nextScreen.putExtra("CustName", customerName.toString())
                 nextScreen.putExtra("CustPhone", customerPhone.toString())
+                nextScreen.putExtra("TeaType", teaType)
+                nextScreen.putExtra("TeaSize", custSelectedTeaSize.toString())
 
                 startActivity(nextScreen)
             } else {
