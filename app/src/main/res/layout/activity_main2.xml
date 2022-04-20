@@ -37,7 +37,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <RadioGroup
-        android:id="@+id/radioGroup"
+        android:id="@+id/idradioGroup"
         android:layout_width="168dp"
         android:layout_height="152dp"
         android:layout_marginTop="24dp"
@@ -69,13 +69,13 @@
         android:id="@+id/idSeekBarSize"
         android:layout_width="326dp"
         android:layout_height="54dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:max="3"
         android:min="1"
         android:progress="2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/idradioGroup" />
 
     <TextView
         android:id="@+id/idSeekBarText"
@@ -105,6 +105,7 @@
         android:layout_width="105dp"
         android:layout_height="51dp"
         android:layout_marginTop="28dp"
+        android:layout_marginEnd="24dp"
         android:text="@string/teaSugar"
         android:textOff="@string/teaSugarOff"
         android:textOn="@string/teaSugar"
@@ -118,6 +119,7 @@
         android:layout_width="107dp"
         android:layout_height="48dp"
         android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
         android:textOff="@string/teaCreamOff"
         android:textOn="@string/teaCream"
         app:layout_constraintEnd_toEndOf="parent"
@@ -128,7 +130,7 @@
         android:id="@+id/textView"
         android:layout_width="80dp"
         android:layout_height="30dp"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
         android:text="@string/scr2Name"
         app:layout_constraintEnd_toStartOf="@+id/idPrintName"
@@ -139,7 +141,7 @@
         android:id="@+id/textView3"
         android:layout_width="80dp"
         android:layout_height="30dp"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="20dp"
         android:text="@string/scr2Phone"
         app:layout_constraintEnd_toStartOf="@+id/idPrintPhone"

@@ -2,10 +2,7 @@ package com.example.mad_105_final_project2
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.RadioButton
-import android.widget.SeekBar
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 
 /*********************************************************************************
@@ -39,8 +36,10 @@ class MainActivity2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
 
+        // Setters and Getters
         val displayName: TextView = findViewById(R.id.idPrintName)
         val displayPhone: TextView = findViewById(R.id.idPrintPhone)
+//        val custSelTea = findViewById<RadioGroup>(R.id.idradioGroup)
         val rbTeaBlack = findViewById<RadioButton>(R.id.idBtnBlackTea)
         val rbTeaGreen = findViewById<RadioButton>(R.id.idBtnGreenTea)
         val rbTeaHerbal = findViewById<RadioButton>(R.id.idBtnHerbalTea)
@@ -59,13 +58,23 @@ class MainActivity2 : AppCompatActivity() {
 
         var custSelectedTeaSize: Int = 2
         var teaType = "None"
+        var teaSelected = true
+
+//        custSelTea.setOnCheckedChangeListener{Toast.makeText(applicationContext, "Black Tea", android.widget.Toast.LENGTH_LONG).show()}
+        rbTeaBlack.setOnClickListener {
+            Toast.makeText(applicationContext, "Black Tea", android.widget.Toast.LENGTH_LONG).show()
+        }
 
         if (rbTeaBlack.isChecked) {
             teaType = "Black"
+            teaSelected = true
+            Toast.makeText(applicationContext, "Black Tea", android.widget.Toast.LENGTH_LONG).show()
         } else if (rbTeaGreen.isChecked) {
             teaType = "Green"
+            teaSelected = true
         } else if (rbTeaHerbal.isChecked) {
             teaType = "Herbal"
+            teaSelected = true
         }
 
         //  When user moves the Seekbar, retrieve new value and update seekbarOutputText
@@ -94,13 +103,17 @@ class MainActivity2 : AppCompatActivity() {
             })
         }
 
-
         screen3Btn.setOnClickListener {
-            val nextScreen = Intent(this@MainActivity2, MainActivity3::class.java)
-            nextScreen.putExtra("CustName", customerName.toString())
-            nextScreen.putExtra("CustPhone", customerPhone.toString())
+            if (teaSelected) {
+                val nextScreen = Intent(this@MainActivity2, MainActivity3::class.java)
+                nextScreen.putExtra("CustName", customerName.toString())
+                nextScreen.putExtra("CustPhone", customerPhone.toString())
 
-            startActivity(nextScreen)
+                startActivity(nextScreen)
+            } else {
+                Toast.makeText(applicationContext, "Please Select Type of Tea", android.widget.Toast.LENGTH_LONG).show()
+
+            }
         }
     }
 }
