@@ -39,7 +39,6 @@ class MainActivity2 : AppCompatActivity() {
         // Setters and Getters
         val displayName: TextView = findViewById(R.id.idPrintName)
         val displayPhone: TextView = findViewById(R.id.idPrintPhone)
-//        val custSelTea = findViewById<RadioGroup>(R.id.idradioGroup)
         val rbTeaBlack = findViewById<RadioButton>(R.id.idBtnBlackTea)
         val rbTeaGreen = findViewById<RadioButton>(R.id.idBtnGreenTea)
         val rbTeaHerbal = findViewById<RadioButton>(R.id.idBtnHerbalTea)
@@ -58,21 +57,22 @@ class MainActivity2 : AppCompatActivity() {
 
         var custSelectedTeaSize: Int = 2
         var teaType = "None"
-        var teaSelected = true
+        var teaSelected = false
 
-//        custSelTea.setOnCheckedChangeListener{Toast.makeText(applicationContext, "Black Tea", android.widget.Toast.LENGTH_LONG).show()}
         rbTeaBlack.setOnClickListener {
             Toast.makeText(applicationContext, "Black Tea", android.widget.Toast.LENGTH_LONG).show()
-        }
-
-        if (rbTeaBlack.isChecked) {
             teaType = "Black"
             teaSelected = true
-            Toast.makeText(applicationContext, "Black Tea", android.widget.Toast.LENGTH_LONG).show()
-        } else if (rbTeaGreen.isChecked) {
+        }
+
+        rbTeaGreen.setOnClickListener {
+            Toast.makeText(applicationContext, "Green Tea", android.widget.Toast.LENGTH_LONG).show()
             teaType = "Green"
             teaSelected = true
-        } else if (rbTeaHerbal.isChecked) {
+        }
+
+        rbTeaHerbal.setOnClickListener {
+            Toast.makeText(applicationContext, "Herbal Tea", android.widget.Toast.LENGTH_LONG).show()
             teaType = "Herbal"
             teaSelected = true
         }
