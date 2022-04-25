@@ -10,6 +10,8 @@ class MainActivity3 : AppCompatActivity() {
     private var customerPhone: String? = ""
     private var teaType: String? = ""
     private var teaSize: String? = ""
+    private var sugar: String? = ""
+    private var cream: String? = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,6 +21,8 @@ class MainActivity3 : AppCompatActivity() {
         val displayPhone: TextView = findViewById(R.id.idPrintPhone)
         val displayCustTeaType: TextView = findViewById(R.id.idCustSelTeaType)
         val displayCustTeaSize: TextView = findViewById(R.id.idTeaSize)
+        val displayCustTeaSugar: TextView = findViewById(R.id.idTeaSugar)
+        val displayCustTeaCream: TextView = findViewById(R.id.idTeaCream)
 
         val extras = intent.extras
         if (extras != null) {
@@ -26,11 +30,15 @@ class MainActivity3 : AppCompatActivity() {
             customerPhone = extras.getString("CustPhone")
             teaType = extras.getString("TeaType")
             teaSize = extras.getString( "TeaSize")
+            sugar = extras.getString("Sugar")
+            cream = extras.getString ("Cream")
         }
 
         displayName.text = customerName
         displayPhone.text = customerPhone
         displayCustTeaType.text = teaType
         displayCustTeaSize.text = teaSize
+        displayCustTeaSugar.text = sugar
+        displayCustTeaCream.text = cream
     }
 }

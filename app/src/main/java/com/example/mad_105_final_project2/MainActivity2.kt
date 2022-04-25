@@ -16,15 +16,21 @@ import androidx.appcompat.app.AppCompatActivity
  *   customerPhone => the customer's phone
  *
  * Second Screen Variables
+ *   idPrintName (from layout) = displayName => display customerName from Screen1
+ *   idPrintPhone (from layout) = displayPhone => display customerPhone from Screen1
  *   idBtnBlackTea (from layout) = teaTypeBlack
  *   idBtnGreenTea (from layout) = teaTypeGreen
  *   idBtnHerbalTea (from layout) = teaTypeHerbal
  *   idToggleSugar (from layout)
  *   idToggleCream (from layout)
- *
  *   idSeekBarSize (from layout) = custSelectTeaSize:  Tea size being ordered 1=small, 2=medium, 3=large
- *   idSeekBarText (from layout) =custSelectTeaSizeText: Displays the tea size selected by the customer
+ *   idSeekBarText (from layout) = custSelectTeaSizeText: Displays the tea size selected by the customer
  *   idButtonToScr3 (from layout) = screen3Btn => goes to screen 3 (MainActivity3)
+ *
+ *   teaType (string): based on the Buttons for teaType, will be: Black, Green or Herbal
+ *   teaSelected (Boolean): None of the radio buttons for teaType is initially selected, this is False until the user selects a teaType
+ *   sugar (string): yes or no based on idToggleSugar
+ *   cream (string): yes or no based on idToggleCream
  */
 
 class MainActivity2 : AppCompatActivity() {
@@ -45,10 +51,7 @@ class MainActivity2 : AppCompatActivity() {
         val custSelectTeaSize: SeekBar = findViewById(R.id.idSeekBarSize)
         val custSelectTeaSizeText: TextView = findViewById(R.id.idSeekBarText)
         val custSelectSugar:  ToggleButton = findViewById(R.id.idToggleSugar)
-//        val custSelectCreamer: ToggleButton = findViewById(R.id.idToggleCreamer)
-
-//        val custSelectCream = findViewById<ToggleButton>(R.id.idToggleCreamer)
-//        val custSelectSugar = findViewById<ToggleButton(R.id.idToggleSugar)
+        val custSelectCream: ToggleButton = findViewById(R.id.idToggleCreamer)
         val screen3Btn = findViewById<Button>(R.id.idButtonToScr3)
 
         // Collect information passed in from MainActivity.kt and declare local variables for such input
@@ -58,12 +61,16 @@ class MainActivity2 : AppCompatActivity() {
             customerPhone = extras.getString("CustPhone")
         }
 
+        // Display Name and Phone passed from MainActivity.kt
         displayName.text = customerName
         displayPhone.text = customerPhone
 
+        // Local variables (noted above)
         var custSelectedTeaSize: Int = 2
         var teaType = "None"
         var teaSelected = false
+        var sugar = "None"
+        var cream = "None"
 
         // Detect when customer selects a type of Tea (Black, Green, Herbal)
         rbTeaBlack.setOnClickListener {
@@ -84,6 +91,28 @@ class MainActivity2 : AppCompatActivity() {
             teaSelected = true
         }
 
+        // Detect when customer toggles Sugar Button and respectively set variable "sugar"
+        custSelectSugar.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                sugar = "Yes"
+//                Toast.makeText(applicationContext, "Sugar", android.widget.Toast.LENGTH_LONG).show()
+            } else {
+//                Toast.makeText(applicationContext, "No Sugar", android.widget.Toast.LENGTH_LONG).show()
+                sugar = "No"
+            }
+        }
+
+        // Detect when customer toggles Cream Button and respectively set variable "cream"
+        custSelectCream.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                cream = "Yes"
+//                Toast.makeText(applicationContext, "Cream", android.widget.Toast.LENGTH_LONG).show()
+            } else {
+//                Toast.makeText(applicationContext, "No Cream", android.widget.Toast.LENGTH_LONG).show()
+                cream = "No"
+            }
+        }
+
         //  When user moves the Seekbar, retrieve new value and update seekbarOutputText
         custSelectTeaSize.run {
 
@@ -100,16 +129,15 @@ class MainActivity2 : AppCompatActivity() {
                 }
 
                 override fun onStartTrackingTouch(p0: SeekBar?) {
-                    //                     seekbarOutputText.text = "TinyFine"
                 }
 
                 override fun onStopTrackingTouch(p0: SeekBar?) {
-
                 }
 
             })
         }
 
+        // When customer selects Next, confirm a tea type is selected, and pass info to MainActivity3 (Screen3)
         screen3Btn.setOnClickListener {
             if (teaSelected) {
                 val nextScreen = Intent(this@MainActivity2, MainActivity3::class.java)
@@ -117,11 +145,13 @@ class MainActivity2 : AppCompatActivity() {
                 nextScreen.putExtra("CustPhone", customerPhone.toString())
                 nextScreen.putExtra("TeaType", teaType)
                 nextScreen.putExtra("TeaSize", custSelectedTeaSize.toString())
+                nextScreen.putExtra("Sugar", sugar)
+                nextScreen.putExtra("Cream", cream)
 
                 startActivity(nextScreen)
             } else {
+                // Give message for user to select a Type of Tea befor they can proceed
                 Toast.makeText(applicationContext, "Please Select Type of Tea", android.widget.Toast.LENGTH_LONG).show()
-
             }
         }
     }

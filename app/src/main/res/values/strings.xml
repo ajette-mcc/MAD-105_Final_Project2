@@ -22,4 +22,5 @@
 
     <string name="teaSelection">Tea Type:</string>
     <string name="teaSizeSelection">Tea Size:</string>
+    <string name="notifyMsg">Please be patient, we will text when your tea is ready.</string>
 </resources>
