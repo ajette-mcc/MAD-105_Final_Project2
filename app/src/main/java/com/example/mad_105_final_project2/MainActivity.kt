@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
 
         if (customerPhone.text.toString().isEmpty()) {
             // return error, want at least some string for the phone number
-            customerPhone.error = "Invalid Name"
+            customerPhone.error = "Invalid Phone"
             customerPhone.requestFocus()
             return false
         }
