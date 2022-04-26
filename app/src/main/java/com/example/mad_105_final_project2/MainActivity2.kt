@@ -11,22 +11,23 @@ import androidx.appcompat.app.AppCompatActivity
  * Date: April-2022
  * Second Screen (MainActivity2) collects details on the cup of tea
  *
- * First Screen Variables passed to MainActivity2
- *   customerName => the customer name
- *   customerPhone => the customer's phone
- *
- * Second Screen Variables
+ * Layout IDs and what they contain
  *   idPrintName (from layout) = displayName => display customerName from Screen1
  *   idPrintPhone (from layout) = displayPhone => display customerPhone from Screen1
- *   idBtnBlackTea (from layout) = teaTypeBlack
- *   idBtnGreenTea (from layout) = teaTypeGreen
- *   idBtnHerbalTea (from layout) = teaTypeHerbal
- *   idToggleSugar (from layout)
- *   idToggleCream (from layout)
+ *   idBtnBlackTea (from layout) = teaTypeBlack - from RadioGroup (only select one tea type)
+ *   idBtnGreenTea (from layout) = teaTypeGreen - from RadioGroup (only select one tea type)
+ *   idBtnHerbalTea (from layout) = teaTypeHerbal - from RadioGroup (only select one tea type)
+ *   idToggleSugar (from layout) = default NO Sugar
+ *   idToggleCream (from layout) = default NO Cream
  *   idSeekBarSize (from layout) = custSelectTeaSize:  Tea size being ordered 1=small, 2=medium, 3=large
  *   idSeekBarText (from layout) = custSelectTeaSizeText: Displays the tea size selected by the customer
  *   idButtonToScr3 (from layout) = screen3Btn => goes to screen 3 (MainActivity3)
  *
+ * First Screen Variables passed to MainActivity2
+ *   customerName => the customer name
+ *   customerPhone => the customer's phone
+ *
+ * Other Screen2 Variables
  *   teaType (string): based on the Buttons for teaType, will be: Black, Green or Herbal
  *   teaSelected (Boolean): None of the radio buttons for teaType is initially selected, this is False until the user selects a teaType
  *   sugar (string): yes or no based on idToggleSugar
@@ -69,8 +70,8 @@ class MainActivity2 : AppCompatActivity() {
         var custSelectedTeaSize: Int = 2
         var teaType = "None"
         var teaSelected = false
-        var sugar = "None"
-        var cream = "None"
+        var sugar = "No"
+        var cream = "No"
 
         // Detect when customer selects a type of Tea (Black, Green, Herbal)
         rbTeaBlack.setOnClickListener {
@@ -147,7 +148,6 @@ class MainActivity2 : AppCompatActivity() {
                 nextScreen.putExtra("TeaSize", custSelectedTeaSize.toString())
                 nextScreen.putExtra("Sugar", sugar)
                 nextScreen.putExtra("Cream", cream)
-
                 startActivity(nextScreen)
             } else {
                 // Give message for user to select a Type of Tea befor they can proceed

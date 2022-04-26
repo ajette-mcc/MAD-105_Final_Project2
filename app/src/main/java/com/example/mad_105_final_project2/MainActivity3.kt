@@ -10,26 +10,21 @@ import androidx.appcompat.app.AppCompatActivity
  * Date: April-2022
  * Third Screen (MainActivity3) displays user selected details on the cup of tea
  *
- * First Screen Variables passed to MainActivity2 and MainActivity3
- *   customerName => the customer name
- *   customerPhone => the customer's phone
- *
- * Second Screen Variables
+ * Layout IDs and what they contain
  *   idPrintName (from layout) = displayName => display customerName from Screen1
  *   idPrintPhone (from layout) = displayPhone => display customerPhone from Screen1
- *   idBtnBlackTea (from layout) = teaTypeBlack
- *   idBtnGreenTea (from layout) = teaTypeGreen
- *   idBtnHerbalTea (from layout) = teaTypeHerbal
- *   idToggleSugar (from layout)
- *   idToggleCream (from layout)
- *   idSeekBarSize (from layout) = custSelectTeaSize:  Tea size being ordered 1=small, 2=medium, 3=large
- *   idSeekBarText (from layout) = custSelectTeaSizeText: Displays the tea size selected by the customer
- *   idButtonToScr3 (from layout) = screen3Btn => goes to screen 3 (MainActivity3)
+ *   idCustSelTeaType (from layout) = displayCustTeaType => displays customer tea type (black, green, herbal)
+ *   idTeaSize (from layout) = displayCustTeaSize => displays customer tea size (small, med, large)
+ *   idTeaSugar (from layout) = displayCustTeaSugar => displays if customer wants sugar (yes or no)
+ *   idTeaCream (from layout) = displayCustTeaCream => displays if customer wants cream (yes or no)
  *
+ * First and Second Screen Variables passed to MainActivity3
+ *   customerName: the customer name (from screen1 and 2)
+ *   customerPhone: the customer's phone (from screen1 and 2)
  *   teaType (string): based on the Buttons for teaType, will be: Black, Green or Herbal
- *   teaSelected (Boolean): None of the radio buttons for teaType is initially selected, this is False until the user selects a teaType
- *   sugar (string): yes or no based on idToggleSugar
- *   cream (string): yes or no based on idToggleCream
+ *   teaSize (string): based on the user selected tea size: 1 (small), 2 (medium), 3 (large)
+ *   sugar (string): yes or no based on the user selection
+ *   cream (string): yes or no based on the user selection
  */
 
 class MainActivity3 : AppCompatActivity() {
@@ -45,6 +40,7 @@ class MainActivity3 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main3)
 
+        // Setters and Getters
         val displayName: TextView = findViewById(R.id.idPrintName)
         val displayPhone: TextView = findViewById(R.id.idPrintPhone)
         val displayCustTeaType: TextView = findViewById(R.id.idCustSelTeaType)
@@ -52,6 +48,7 @@ class MainActivity3 : AppCompatActivity() {
         val displayCustTeaSugar: TextView = findViewById(R.id.idTeaSugar)
         val displayCustTeaCream: TextView = findViewById(R.id.idTeaCream)
 
+        // Collect information passed from MainActivity2.kt and declare local variables for input
         val extras = intent.extras
         if (extras != null) {
             customerName = extras.getString("CustName")
@@ -62,6 +59,7 @@ class MainActivity3 : AppCompatActivity() {
             cream = extras.getString ("Cream")
         }
 
+        // Convert string numerical tea size value to a respective text
         var custSelectTeaSizeText = "Out of Bound"
         when (teaSize?.toInt()) {
             1 -> custSelectTeaSizeText = "Small"
@@ -70,6 +68,7 @@ class MainActivity3 : AppCompatActivity() {
             else -> custSelectTeaSizeText = "Out of Bound"
         }
 
+        // Display customer selected tea order
         displayName.text = customerName
         displayPhone.text = customerPhone
         displayCustTeaType.text = teaType
