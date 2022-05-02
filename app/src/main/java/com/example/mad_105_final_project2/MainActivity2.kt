@@ -1,6 +1,7 @@
 package com.example.mad_105_final_project2
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -73,23 +74,42 @@ class MainActivity2 : AppCompatActivity() {
         var sugar = "No"
         var cream = "No"
 
-        // Detect when customer selects a type of Tea (Black, Green, Herbal)
+        // Detect when customer selects a type of Tea (Black, Green, Herbal).  Highlight selected
+        // tea type in Light Gray and change the color of unselected tea types to Magenta
         rbTeaBlack.setOnClickListener {
 //            Toast.makeText(applicationContext, "Black Tea", android.widget.Toast.LENGTH_LONG).show()
             teaType = "Black"
             teaSelected = true
+            rbTeaBlack.setBackgroundColor(Color.LTGRAY)
+            rbTeaGreen.setBackgroundColor(Color.WHITE)
+            rbTeaHerbal.setBackgroundColor(Color.WHITE)
+            rbTeaBlack.setTextColor(Color.BLACK)
+            rbTeaGreen.setTextColor(Color.MAGENTA)
+            rbTeaHerbal.setTextColor(Color.MAGENTA)
         }
 
         rbTeaGreen.setOnClickListener {
 //            Toast.makeText(applicationContext, "Green Tea", android.widget.Toast.LENGTH_LONG).show()
             teaType = "Green"
             teaSelected = true
+            rbTeaGreen.setBackgroundColor(Color.LTGRAY)
+            rbTeaBlack.setBackgroundColor(Color.WHITE)
+            rbTeaHerbal.setBackgroundColor(Color.WHITE)
+            rbTeaGreen.setTextColor(Color.BLACK)
+            rbTeaBlack.setTextColor(Color.MAGENTA)
+            rbTeaHerbal.setTextColor(Color.MAGENTA)
         }
 
         rbTeaHerbal.setOnClickListener {
 //            Toast.makeText(applicationContext, "Herbal Tea", android.widget.Toast.LENGTH_LONG).show()
             teaType = "Herbal"
             teaSelected = true
+            rbTeaHerbal.setBackgroundColor(Color.LTGRAY)
+            rbTeaBlack.setBackgroundColor(Color.WHITE)
+            rbTeaGreen.setBackgroundColor(Color.WHITE)
+            rbTeaHerbal.setTextColor(Color.BLACK)
+            rbTeaGreen.setTextColor(Color.MAGENTA)
+            rbTeaBlack.setTextColor(Color.MAGENTA)
         }
 
         // Detect when customer toggles Sugar Button and respectively set variable "sugar"
